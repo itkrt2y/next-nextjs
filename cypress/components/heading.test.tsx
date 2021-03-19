@@ -1,6 +1,6 @@
 import { mount } from "@cypress/react";
 import { H1, H2 } from "~/components/heading";
-import "~/src/index.css";
+import "/index.css";
 
 describe("H1", () => {
   it("shows title", () => {

@@ -1,6 +1,6 @@
 import { mount } from "@cypress/react";
 import { App } from "~/app";
-import "~/index.css";
+import "/index.css";
 
 describe("Navigation", () => {
   it("navigates", () => {
