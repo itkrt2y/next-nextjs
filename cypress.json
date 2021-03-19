@@ -1,0 +1,4 @@
+{
+  "experimentalFetchPolyfill": true,
+  "componentFolder": "cypress/components"
+}
