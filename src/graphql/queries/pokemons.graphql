@@ -1,5 +1,5 @@
 query pokemons($first: Int!) {
-    __typename
+  __typename
   pokemons(first: $first) {
     __typename
     id
