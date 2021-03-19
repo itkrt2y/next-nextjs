@@ -1,7 +1,7 @@
 import { Provider } from "@urql/preact";
 import { FunctionComponent } from "preact";
 import { Link, useRoute } from "wouter-preact";
-import { client } from "../graphql";
+import { client } from "~/graphql";
 
 export const Layout: FunctionComponent = ({ children }) => (
   <div className="h-screen flex overflow-hidden bg-white">

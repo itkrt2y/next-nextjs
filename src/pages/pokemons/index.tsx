@@ -1,9 +1,9 @@
 import { useState } from "preact/hooks";
 import { Link, useLocation } from "wouter-preact";
-import { Layout } from "../../components/Layout";
-import { H1 } from "../../components/heading";
-import { ChevronLeft, ChevronRight } from "../../components/icons";
-import { usePokemonsQuery } from "../../graphql";
+import { Layout } from "~/components/Layout";
+import { H1 } from "~/components/heading";
+import { ChevronLeft, ChevronRight } from "~/components/icons";
+import { usePokemonsQuery } from "~/graphql";
 
 export const Page = () => {
   const searchParams = new URLSearchParams(window.location.search);
