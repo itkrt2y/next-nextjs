@@ -36,6 +36,7 @@
     "@cypress/react": "next",
     "@cypress/vite-dev-server": "^1.1.0",
     "@gqless/cli": "^2.0.1",
+    "@gqless/logger": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "cypress": "^6.8.0",

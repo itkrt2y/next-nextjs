@@ -563,6 +563,14 @@
     prettier "^2.2.1"
     runtypes "^5.1.0"
 
+"@gqless/logger@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@gqless/logger/-/logger-2.0.1.tgz#48de71182ef5cd5935aeb01f807388ea7dc0c8c1"
+  integrity sha512-tbmWcpeh6Lii9RXbKjytJCNmfAwcbFqB72wFFWXW7z92W9qZKPuWRfh8+f6rlTV8P4qv79ggxMVe6nxS+n7c9w==
+  dependencies:
+    prettier "^2.2.1"
+    serialize-error "^8.0.1"
+
 "@gqless/react@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@gqless/react/-/react-2.0.1.tgz#11c3745d167543a94e7d086fb957aeabd34e238a"
@@ -4598,6 +4606,13 @@ sentence-case@^3.0.4:
     no-case "^3.0.4"
     tslib "^2.0.3"
     upper-case-first "^2.0.2"
+
+serialize-error@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/serialize-error/-/serialize-error-8.0.1.tgz#7a67f8ecbbf28973b5a954a2852ff9f4eef52d99"
+  integrity sha512-r5o60rWFS+8/b49DNAbB+GXZA0SpDpuWE758JxDKgRTga05r3U5lwyksE91dYKDhXSmnu36RALj615E6Aj5pSg==
+  dependencies:
+    type-fest "^0.20.2"
 
 set-blocking@^2.0.0:
   version "2.0.0"

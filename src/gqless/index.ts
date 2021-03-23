@@ -42,6 +42,12 @@ export const client = createClient<
   queryFetcher,
 });
 
+if (import.meta.env.DEV) {
+  import("@gqless/logger").then(({ createLogger }) => {
+    createLogger(client).start();
+  });
+}
+
 export const {
   query,
   mutation,
