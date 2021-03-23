@@ -1,7 +1,5 @@
-import { Provider } from "@urql/preact";
 import { FunctionComponent } from "preact";
 import { Link, useRoute } from "wouter-preact";
-import { client } from "~/graphql";
 
 export const Layout: FunctionComponent = ({ children }) => (
   <div className="h-screen flex overflow-hidden bg-white">
@@ -14,9 +12,7 @@ export const Layout: FunctionComponent = ({ children }) => (
       tabIndex={0}
     >
       <div className="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-        <main className="h-full">
-          <Provider value={client}>{children}</Provider>
-        </main>
+        <main className="h-full">{children}</main>
       </div>
     </div>
   </div>

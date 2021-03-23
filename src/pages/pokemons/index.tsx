@@ -3,7 +3,7 @@ import { Link, useLocation } from "wouter-preact";
 import { Layout } from "~/components/Layout";
 import { H1 } from "~/components/heading";
 import { ChevronLeft, ChevronRight } from "~/components/icons";
-import { usePokemonsQuery } from "~/graphql";
+import { useQuery } from "~/gqless";
 
 export const Page = () => {
   const searchParams = new URLSearchParams(window.location.search);
@@ -51,12 +51,12 @@ export const Page = () => {
 const limit = 10;
 const DataTable = ({ page }: { page: number }) => {
   const first = page * limit;
-  const [{ data, fetching, error }] = usePokemonsQuery({
-    variables: { first },
-  });
+  const query = useQuery();
+  const data = query.pokemons({ first });
 
-  if (error) return <div>Something went wrong</div>;
-  if (fetching) return <div>Loading...</div>;
+  if (query.gqlessState.isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <table className="table-fixed w-full border divide-x">
@@ -68,16 +68,25 @@ const DataTable = ({ page }: { page: number }) => {
       </thead>
 
       <tbody>
-        {data?.pokemons?.slice(first - limit, first).map((p) => (
-          <tr key={p?.id} className="border-b">
-            <td className="p-2 text-center">
-              <Link href={`/pokemons/${p?.number}`} class="underline">
-                {p?.number}
-              </Link>
-            </td>
-            <td className="p-2 text-center">{p?.name}</td>
-          </tr>
-        ))}
+        {data?.map((p) => {
+          const num = parseInt(p?.number as string, 10);
+
+          return (
+            <tr
+              key={p?.id}
+              className={`border-b ${
+                first - limit < num && num <= first ? "" : "hidden"
+              }`}
+            >
+              <td className="p-2 text-center">
+                <Link href={`/pokemons/${p?.number}`} class="underline">
+                  {p?.number}
+                </Link>
+              </td>
+              <td className="p-2 text-center">{p?.name}</td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );

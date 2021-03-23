@@ -7,4 +7,4 @@ Next.js like app template
 - [Preact](https://preactjs.com/)
 - [Vite](https://vitejs.dev)
 - [wouter](https://github.com/molefrog/wouter)
-- [urql](https://formidable.com/open-source/urql/)
+- [gqless](https://gqless.com/)

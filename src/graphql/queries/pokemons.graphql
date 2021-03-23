@@ -1,9 +1,0 @@
-query pokemons($first: Int!) {
-  __typename
-  pokemons(first: $first) {
-    __typename
-    id
-    number
-    name
-  }
-}
