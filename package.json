@@ -2,7 +2,6 @@
   "private": true,
   "name": "next-nextjs",
   "scripts": {
-    "postinstall": "patch-package",
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
@@ -21,7 +20,6 @@
     "@tailwindcss/jit": "^0.1.7",
     "autoprefixer": "^10.2.5",
     "gqless": "^2.0.2",
-    "patch-package": "^6.4.7",
     "postcss": "^8.2.8",
     "preact": "^10.5.9",
     "react": "npm:@preact/compat",
