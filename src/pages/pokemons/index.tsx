@@ -76,7 +76,7 @@ const DataTable = ({ page }: { page: number }) => {
           .map((p) => (
             <tr key={p?.id} className="border-b">
               <td className="p-2 text-center">
-                <Link href={`/pokemons/${p?.number}`} class="underline">
+                <Link href={`/pokemons/${p?.name}`} class="underline">
                   {p?.number}
                 </Link>
               </td>
