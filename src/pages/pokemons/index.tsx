@@ -1,4 +1,3 @@
-import { selectFields } from "gqless";
 import { useState } from "preact/hooks";
 import { Link, useLocation } from "wouter-preact";
 import { Layout } from "~/components/Layout";
@@ -52,14 +51,13 @@ export const Page = () => {
 const limit = 10;
 const DataTable = ({ page }: { page: number }) => {
   const first = page * limit;
-  const query = useQuery();
-  const data = selectFields(query.pokemons({ first }), [
-    "id",
-    "number",
-    "name",
-  ]);
+  const { $state, pokemons } = useQuery({
+    prepare({ prepass, query }) {
+      prepass(query.pokemons({ first }), "id", "number", "name");
+    },
+  });
 
-  if (query.$state.isLoading) {
+  if ($state.isLoading) {
     return <div>Loading...</div>;
   }
 
@@ -73,16 +71,18 @@ const DataTable = ({ page }: { page: number }) => {
       </thead>
 
       <tbody>
-        {data?.slice(first - limit, first).map((p) => (
-          <tr key={p?.id} className="border-b">
-            <td className="p-2 text-center">
-              <Link href={`/pokemons/${p?.number}`} class="underline">
-                {p?.number}
-              </Link>
-            </td>
-            <td className="p-2 text-center">{p?.name}</td>
-          </tr>
-        ))}
+        {pokemons({ first })
+          ?.slice(first - limit, first)
+          .map((p) => (
+            <tr key={p?.id} className="border-b">
+              <td className="p-2 text-center">
+                <Link href={`/pokemons/${p?.number}`} class="underline">
+                  {p?.number}
+                </Link>
+              </td>
+              <td className="p-2 text-center">{p?.name}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   );
